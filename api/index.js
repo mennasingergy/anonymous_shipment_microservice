@@ -21,8 +21,8 @@ app.use(express.json());
 app.get('/api/find/:search',async (req, res) => {
   const {search} = req.params;
 //res.send("search for this product");
-await shipments.find({"order_id": {$regex: search, $options:"i"} }) 
- .then(shipments => res.json(shipments))
+await Shipment.find({"order_id": {$regex: search, $options:"i"} }) 
+ .then(Shipment => res.json(Shipment))
  .catch(err => res.status(400).json('Error: ' + err));
 });
 
